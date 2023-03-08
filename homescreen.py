@@ -1,25 +1,21 @@
 import pygame
 import sys
 
-
-# initialize pygame
 pygame.init()
 
-# set up the window
 WINDOW_WIDTH = 480
 WINDOW_HEIGHT = 853
 WINDOW = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 pygame.display.set_caption("Doodle Jump")
 
-# set up the font
 FONT = pygame.font.Font(None, 50)
 
-# set up the colors
+# backgroundcolor
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
 
-# set up the player
+#player
 PLAYER_WIDTH = 20
 PLAYER_HEIGHT = 20
 PLAYER_X = WINDOW_WIDTH // 2 - PLAYER_WIDTH // 2
@@ -29,7 +25,7 @@ VELOCITY = 0
 GRAVITY = 0.8
 IS_JUMPING = False
 
-# set up the platform
+#platform
 PLATFORM_WIDTH = 100
 PLATFORM_HEIGHT = 20
 PLATFORM_X = WINDOW_WIDTH // 2 - PLATFORM_WIDTH // 2
@@ -37,10 +33,9 @@ PLATFORM_Y = WINDOW_HEIGHT // 2
 PLATFORM_RECT = pygame.Rect(PLATFORM_X, PLATFORM_Y, PLATFORM_WIDTH, PLATFORM_HEIGHT)
 
 
-# set up the home screen
+#home screen
 def home_screen():
     while True:
-        # handle events
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -50,7 +45,6 @@ def home_screen():
                 if play_button_rect.collidepoint(event.pos):
                     return
 
-        # draw the home screen
         WINDOW.fill(WHITE)
         play_button = FONT.render("PLAY", True, BLACK)
         play_button_rect = play_button.get_rect(center=WINDOW.get_rect().center)
